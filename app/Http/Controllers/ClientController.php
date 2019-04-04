@@ -36,7 +36,20 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = new Client();
+        
+        $client->imie = $request->input("name");
+        $client->nazwisko = $request->input("surname");
+        $client->ulica = $request->input("street");
+        $client->numerdomu = $request->input("houseno");
+        $client->miasto = $request->input("city");
+        $client->kodpocztowy = $request->input("postalcode");
+        $client->email = $request->input("email");
+        $client->telefon = $request->input("phone");
+
+        $client->save();
+
+        return redirect("/clients");
     }
 
     /**
@@ -47,7 +60,10 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        return $client->nazwisko;
+
+        // TODO:
+        // Add eye-friendly display of database data.
     }
 
     /**
@@ -81,6 +97,8 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+
+        return redirect("/clients");
     }
 }
