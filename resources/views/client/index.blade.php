@@ -7,7 +7,7 @@
     </div>
 </div>
 
-
+{{ $count }}
 
 <table class="table">
     <thead>
@@ -45,7 +45,7 @@
                 {{ $client->imie }}
             </td>
             <td>
-                {{ $client->nazwisko }}
+                <a href="{{ route('clients.show', $client->id ) }}">{{ $client->nazwisko }}</a>
             </td>
             <td>
                 {{ $client->ulica }}

@@ -15,7 +15,12 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all();
-        return view('client.index')->with('clients', $clients);
+
+        $count = Client::count();
+
+        return view('client.index')
+            ->with('clients', $clients)
+            ->with('count', $count);
     }
 
     /**
@@ -37,7 +42,8 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $client = new Client();
-        
+
+
         $client->imie = $request->input("name");
         $client->nazwisko = $request->input("surname");
         $client->ulica = $request->input("street");

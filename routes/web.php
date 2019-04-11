@@ -24,8 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 /*
  * Clients pages router
  */
-Route::get('/clients', 'ClientController@index');
+Route::get('/clients', 'ClientController@index')->name('clients.index');
 Route::get('/clients/create', 'ClientController@create');
 Route::post('/clients/store', 'ClientController@store');
 Route::get('/clients/destroy/{client}', 'ClientController@destroy');
-Route::get('/clients/show/{client}', 'ClientController@show');
+Route::get('/clients/show/{client}', 'ClientController@show')->name('clients.show');
